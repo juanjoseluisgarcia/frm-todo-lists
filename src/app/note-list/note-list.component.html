@@ -1,0 +1,11 @@
+@for (note of notes$ | async; track note) {
+  <mat-card class="note-card">
+    <mat-checkbox [checked]="note.done" (change)="toggle(note.id)">
+      <span [class.done]="note.done">{{ note.description }}</span>
+    </mat-checkbox>
+  </mat-card>
+} @empty {
+  <mat-card class="note-card">
+    <span class="empty">No notes found</span>
+  </mat-card>
+}
