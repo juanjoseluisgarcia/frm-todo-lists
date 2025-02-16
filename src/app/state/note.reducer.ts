@@ -10,5 +10,5 @@ export const noteReducer = createReducer(
   on(toggleNote, (state, { id }) =>
     state.map(note => note.id === id ? { ...note, done: !note.done } : note)
   ),
-  on(loadNotes, (_, { notes }) => notes)
+  on(loadNotes, (_, { notes }) => notes ?? [])
 );
